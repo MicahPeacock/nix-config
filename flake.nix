@@ -20,7 +20,6 @@
           ./hosts/default/disko.nix
           disko.nixosModules.disko
           impermanence.nixosModules.impermanence
-          home-manager.nixosModules.home-manager
         ];
       };
     };
