@@ -8,11 +8,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/boot" = {
-    fsType = "vfat";
-    options = [ "defaults" "umask=0077" ];
-  };
-
   fileSystems."/" = {
     fsType = "tmpfs";
     options = [
@@ -23,7 +18,6 @@
   };
 
   fileSystems."/home" = {
-    fsType = "btrfs";
     options = [
       "compress=zstd"
       "noatime"
@@ -32,7 +26,6 @@
   };
 
   fileSystems."/nix" = {
-    fsType = "btrfs";
     options = [
       "compress=zstd"
       "noatime"
@@ -41,7 +34,6 @@
   };
 
   fileSystems."/nix/persist" = {
-    fsType = "btrfs";
     neededForBoot = true;
     options = [
       "compress=zstd"

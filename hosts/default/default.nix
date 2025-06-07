@@ -12,7 +12,7 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Edmonton";
@@ -37,23 +37,27 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
   };
 
   users.users.micahpeacock = {
     isNormalUser = true;
     description = "Micah Peacock";
-    extraGroups = [ "networkmanager" "wheel" ];
+    hashedPassword = ""; # In a separate window, $ nix-shell --run 'mkpasswd -m SHA-512 -s' -p mkpasswd
+    extraGroups = [
+      "video"
+      "audio"
+      "input"
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
+      brave
       zed-editor
     ];
   };
 
-  programs.firefox.enable = true;
-
   nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     vim
     wget
