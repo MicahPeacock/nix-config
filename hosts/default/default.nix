@@ -1,6 +1,8 @@
 { config, pkgs, ... }: {
   imports = [
+    ./disko.nix
     ./hardware-configuration.nix
+    ./impermanence.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
