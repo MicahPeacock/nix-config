@@ -25,6 +25,15 @@
           home-manager.nixosModules.home-manager
         ];
       };
+      nixos-desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/default
+          disko.nixosModules.disko
+          impermanence.nixosModules.impermanence
+          home-manager.nixosModules.home-manager
+        ];
+      };
     };
   };
 }

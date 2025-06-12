@@ -4,22 +4,16 @@
     ./hardware-configuration.nix
     ./impermanence.nix
     ../../modules/system
+    ../../modules/drivers
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
 
   time.timeZone = "America/Edmonton";
   i18n.defaultLocale = "en_CA.UTF-8";
 
   services.xserver.enable = true;
+  drivers.amdgpu.enable = true;
 
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -66,23 +60,6 @@
   ];
 
   zramSwap.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   system.stateVersion = "25.05";
 }
