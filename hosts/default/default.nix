@@ -3,6 +3,7 @@
     ./disko.nix
     ./hardware-configuration.nix
     ./impermanence.nix
+    ../../modules/system
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -42,7 +43,7 @@
   users.users.micahpeacock = {
     isNormalUser = true;
     description = "Micah Peacock";
-    hashedPassword = ""; # In a separate window, $ nix-shell --run 'mkpasswd -m SHA-512 -s' -p mkpasswd
+    hashedPassword = "$6$Xhb4wrtUnbRV77gz$wOdz/NaWT6HheRzNi9Bp8Ia0D2D5lSMGPLMmqKxgjtAk2ZhvaQEVC9Ok91Lc1KikcqSkTfhX0coyRD7znJZub1"; # In a separate window, $ nix-shell --run 'mkpasswd -m SHA-512 -s' -p mkpasswd
     extraGroups = [
       "video"
       "audio"
