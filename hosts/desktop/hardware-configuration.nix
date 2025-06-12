@@ -8,40 +8,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    fsType = "tmpfs";
-    options = [
-      "noatime"
-      "size=8G"
-      "mode=755"
-    ];
-  };
-
-  fileSystems."/home" = {
-    options = [
-      "compress=zstd"
-      "noatime"
-      "subvol=@home"
-    ];
-  };
-
-  fileSystems."/nix" = {
-    options = [
-      "compress=zstd"
-      "noatime"
-      "subvol=@nix"
-    ];
-  };
-
-  fileSystems."/nix/persist" = {
-    neededForBoot = true;
-    options = [
-      "compress=zstd"
-      "noatime"
-      "subvol=@persist"
-    ];
-  };
-
   swapDevices = lib.mkForce [ ];
 
   networking.useDHCP = lib.mkDefault true;

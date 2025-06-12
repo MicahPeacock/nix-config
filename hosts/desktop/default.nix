@@ -7,32 +7,15 @@
     ../../modules/drivers
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   time.timeZone = "America/Edmonton";
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  services.xserver.enable = true;
   drivers.amdgpu.enable = true;
 
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   services.printing.enable = true;
-
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   users.users.micahpeacock = {
     isNormalUser = true;
