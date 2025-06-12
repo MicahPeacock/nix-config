@@ -7,5 +7,15 @@
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
   };
-  local.hardware-clock.enable = false;
+
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+    udiskie
+    ntfs3g
+    exfat
+    libinput-gestures
+    libinput
+    lm_sensors
+    pciutils
+  ];
 }

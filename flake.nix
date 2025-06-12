@@ -14,10 +14,19 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { nixpkgs, disko, home-manager, impermanence, ... } @inputs: {
+  outputs = { nixpkgs, disko, home-manager, impermanence, ... } @inputs: let
+    system   = "x86_64-linux";
+    hostname = "nixos";
+    username = "micahpeacock";
+  in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit hostname;
+        };
         modules = [
           ./hosts/default
           disko.nixosModules.disko
@@ -26,9 +35,14 @@
         ];
       };
       nixos-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit hostname;
+        };
         modules = [
-          ./hosts/default
+          ./hosts/desktop
           disko.nixosModules.disko
           impermanence.nixosModules.impermanence
           home-manager.nixosModules.home-manager
