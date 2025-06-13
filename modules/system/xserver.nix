@@ -1,5 +1,5 @@
 
-{host, ...}: {
+{ hostname, ... }: {
   services.xserver = {
     enable = false;
     xkb = {

@@ -9,13 +9,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    brightnessctl
-    udiskie
-    ntfs3g
-    exfat
-    libinput-gestures
-    libinput
-    lm_sensors
-    pciutils
+    # brightnessctl
+    # udiskie
+    # ntfs3g
+    # exfat
+    # libinput-gestures
+    # libinput
+    # lm_sensors
+    # pciutils
   ];
 }

@@ -1,6 +1,6 @@
 { ... }: {
   services = {
-    libinput.enable = true;
+    # libinput.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
     openssh = {
@@ -13,8 +13,8 @@
       ports = [ 22 ];
     };
     blueman.enable = true;
-    tumbler.enable = true;
-    gnome.gnome-keyring.enable = true;
+    # tumbler.enable = true;
+    # gnome.gnome-keyring.enable = true;
     smartd = {
       enable = true;
       autodetect = true;
