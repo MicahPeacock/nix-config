@@ -20,20 +20,6 @@
     username = "micahpeacock";
   in {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit hostname;
-        };
-        modules = [
-          ./hosts/default
-          disko.nixosModules.disko
-          impermanence.nixosModules.impermanence
-          home-manager.nixosModules.home-manager
-        ];
-      };
       nixos-desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
