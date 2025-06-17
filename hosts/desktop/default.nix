@@ -17,6 +17,7 @@
 
   services.printing.enable = true;
 
+  users.mutableUsers = false;
   users.users.micahpeacock = {
     isNormalUser = true;
     description = "Micah Peacock";
@@ -25,6 +26,8 @@
       "video"
       "audio"
       "input"
+      "docker"
+      "libvirtd"
       "networkmanager"
       "wheel"
     ];

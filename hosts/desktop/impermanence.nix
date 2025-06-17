@@ -4,6 +4,9 @@
     directories = [
       "/var/log"
       "/var/lib/bluetooth"
+      "/var/lib/docker"
+      "/var/lib/flatpak"
+      "/var/lib/libvirt"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/etc/nixos"
