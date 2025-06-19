@@ -11,17 +11,22 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hydenix.url = "github:richen604/hydenix";
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { nixpkgs, disko, home-manager, impermanence, ... } @inputs: let
+  outputs = { nixpkgs, disko, hydenix, impermanence, ... } @inputs: let
     system   = "x86_64-linux";
     hostname = "nixos";
     username = "micahpeacock";
   in {
     nixosConfigurations = {
-      nixos-desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
+      nixos-desktop = hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
+        inherit (inputs.hydenix.lib) system;
         specialArgs = {
           inherit inputs;
           inherit username;
