@@ -36,7 +36,6 @@
           ./hosts/desktop
           disko.nixosModules.disko
           impermanence.nixosModules.impermanence
-          home-manager.nixosModules.home-manager
         ];
       };
     };

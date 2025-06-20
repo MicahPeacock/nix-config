@@ -62,8 +62,8 @@
       webcord.enable = false;
       vesktop.enable = false;
     };
-    spotify.enable = true; # enable spotify module
-    swww.enable = true; # enable swww wallpaper daemon
+    spotify.enable = true;
+    swww.enable = true;
     terminals = {
       enable = true;
       kitty = {
@@ -73,10 +73,19 @@
     };
     theme = {
       enable = true;
-      active = "Catppuccin Mocha";
+      active = "Obsidian Purple";
       themes = [
+        "Amethyst Aura"
+        "Ancient Aliens"
         "Catppuccin Mocha"
-        "Catppuccin Latte"
+        "Code Garden"
+        "Green Lush"
+        "Moonlight"
+        "Obsidian Purple"
+        "One Dark"
+        "Paranoid Sweet"
+        "Piece of Mind"
+        "Tokyo Night"
       ];
     };
     waybar.enable = true;
